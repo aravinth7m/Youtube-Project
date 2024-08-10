@@ -336,14 +336,14 @@ if selected == "Data Visualization":
     st.subheader('Visualize the YouTube data')
 
     # Example Visualization: Number of videos per channel
-    query = "SELECT channel_name, Video_count FROM Channel"
+    query = "SELECT channel_name, view_count FROM Channel"
     result = pd.read_sql(query, con=engine)
     
     fig, ax = plt.subplots()
-    ax.bar(result['channel_name'], result['Video_count'])
+    ax.bar(result['channel_name'], result['view_count'])
     ax.set_xlabel('Channel Name')
-    ax.set_ylabel('Video Count')
-    ax.set_title('Number of Videos per Channel')
+    ax.set_ylabel('view_count')
+    ax.set_title('Number of view_count per Channel')
 
     # Rotate x-axis labels
     ax.set_xticklabels(result['channel_name'], rotation=45, ha="right")
